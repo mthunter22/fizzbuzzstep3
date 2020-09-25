@@ -1,13 +1,7 @@
 package com.fizzbuzz.app;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 public class AppTest 
 {
@@ -18,14 +12,43 @@ public class AppTest
         int[] threeInput = {3};
         int[] fiveInput = {5};
         int[] fifteenInput = {15};
-        int[] rangeOfTwenty = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
         int[] multipleOfThreeWithoutThree = {18};
-        assertEquals("1 ", fizzBuzz.transpose(oneInput));
-        assertEquals("lucky ", fizzBuzz.transpose(threeInput));
-        assertEquals("buzz ", fizzBuzz.transpose(fiveInput));
-        assertEquals("fizzbuzz ", fizzBuzz.transpose(fifteenInput));
-        assertEquals("1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky 14 fizzbuzz 16 17 fizz 19 buzz ", fizzBuzz.transpose(rangeOfTwenty));
-        assertEquals("fizz ", fizzBuzz.transpose(multipleOfThreeWithoutThree));
-
+        int[] rangeOfTwenty = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+        assertEquals("1 \n" +
+                "fizz: 0\n" +
+                "buzz: 0\n" +
+                "fizzbuzz: 0\n" +
+                "lucky: 0\n" +
+                "integer: 1", fizzBuzz.transpose(oneInput));
+        assertEquals("lucky \n" +
+                "fizz: 0\n" +
+                "buzz: 0\n" +
+                "fizzbuzz: 0\n" +
+                "lucky: 1\n" +
+                "integer: 0", fizzBuzz.transpose(threeInput));
+        assertEquals("buzz \n" +
+                "fizz: 0\n" +
+                "buzz: 1\n" +
+                "fizzbuzz: 0\n" +
+                "lucky: 0\n" +
+                "integer: 0", fizzBuzz.transpose(fiveInput));
+        assertEquals("fizzbuzz \n" +
+                "fizz: 0\n" +
+                "buzz: 0\n" +
+                "fizzbuzz: 1\n" +
+                "lucky: 0\n" +
+                "integer: 0", fizzBuzz.transpose(fifteenInput));
+        assertEquals("fizz \n" +
+                "fizz: 1\n" +
+                "buzz: 0\n" +
+                "fizzbuzz: 0\n" +
+                "lucky: 0\n" +
+                "integer: 0", fizzBuzz.transpose(multipleOfThreeWithoutThree));
+        assertEquals("1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky 14 fizzbuzz 16 17 fizz 19 buzz \n" +
+                "fizz: 4\n" +
+                "buzz: 3\n" +
+                "fizzbuzz: 1\n" +
+                "lucky: 2\n" +
+                "integer: 10", fizzBuzz.transpose(rangeOfTwenty));
     }
 }
