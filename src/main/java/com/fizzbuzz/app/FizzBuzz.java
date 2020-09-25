@@ -11,22 +11,19 @@ public class FizzBuzz
         String space = " ";
         for(int number : rangeOfNumbers) {
             if (number % 15 == 0) {
-                System.out.print(fizzbuzz + " ");
                 result += fizzbuzz + space;
             }
             else if (number % 3 == 0) {
-                System.out.print(fizz + " ");
                 result += fizz + space;
             }
             else if (number % 5 == 0) {
-                System.out.print(buzz + " ");
                 result += buzz + space;
             }
             else {
-                System.out.print(number + " ");
                 result += Integer.toString(number) + space;
             }
         }
+        System.out.println(result);
         return result;
     }
 }
