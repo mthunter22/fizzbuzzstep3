@@ -14,26 +14,27 @@ public class FizzBuzz
         String fizz = "fizz";
         String buzz = "buzz";
         String fizzbuzz = "fizzbuzz";
+        String lucky = "lucky";
         String result = "";
         String space = " ";
         for(int number : rangeOfNumbers) {
-            if (number % 15 == 0) {
-                System.out.print(fizzbuzz + " ");
+            if (Integer.toString(number).contains("3")) {
+                result += lucky + space;
+            }
+            else if (number % 15 == 0) {
                 result += fizzbuzz + space;
             }
             else if (number % 3 == 0) {
-                System.out.print(fizz + " ");
                 result += fizz + space;
             }
             else if (number % 5 == 0) {
-                System.out.print(buzz + " ");
                 result += buzz + space;
             }
             else {
-                System.out.print(number + " ");
                 result += Integer.toString(number) + space;
             }
         }
+        System.out.println(result);
         return result;
     }
 }
