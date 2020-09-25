@@ -18,9 +18,11 @@ public class AppTest
         int[] threeInput = {3};
         int[] fiveInput = {5};
         int[] fifteenInput = {15};
+        int[] multipleOfThreeWithoutThree = {18};
         assertEquals("1", fizzBuzz.transpose(oneInput));
-        assertEquals("fizz", fizzBuzz.transpose(threeInput));
+        assertEquals("lucky", fizzBuzz.transpose(threeInput));
         assertEquals("buzz", fizzBuzz.transpose(fiveInput));
         assertEquals("fizzbuzz", fizzBuzz.transpose(fifteenInput));
+        assertEquals("fizz", fizzBuzz.transpose(multipleOfThreeWithoutThree));
     }
 }

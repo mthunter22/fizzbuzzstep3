@@ -8,15 +8,20 @@ public class FizzBuzz
 {
     public static void main( String[] args )
     {
-        
+
     }
     public static String transpose(int[] rangeOfNumbers) {
         String fizz = "fizz";
         String buzz = "buzz";
         String fizzbuzz = "fizzbuzz";
+        String lucky = "lucky";
         String result = "";
         for(int number : rangeOfNumbers) {
-            if (number % 15 == 0) {
+            if (Integer.toString(number).contains("3")) {
+                System.out.print(lucky + " ");
+                result = lucky;
+            }
+            else if (number % 15 == 0) {
                 System.out.print(fizzbuzz + " ");
                 result = fizzbuzz;
             }
