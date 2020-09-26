@@ -2,42 +2,54 @@ package com.fizzbuzz.app;
 
 public class FizzBuzz
 {
-    public static void main( String[] args ) { }
+    public static void main (String[] args) {
+        //e.g. transpose range of number 1-20 via fizzbuzz
+        int[] sampleRange = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+        System.out.println(transpose(sampleRange));
+    }
 
     public static String transpose(int[] rangeOfNumbers) {
-        String fizz = "fizz";
-        String buzz = "buzz";
-        String fizzbuzz = "fizzbuzz";
-        String lucky = "lucky";
-        String result = "";
-        String space = " ";
-        int fizzCount = 0, buzzCount = 0, fizzBuzzCount = 0, luckyCount = 0, integerCount = 0;
+        String output = "";
         for(int number : rangeOfNumbers) {
-            if (Integer.toString(number).contains("3")) {
-                result = result + lucky + space;
-                luckyCount += 1;
-            }
-            else if (number % 15 == 0) {
-                result += fizzbuzz + space;
-                fizzBuzzCount += 1;
-            }
-            else if (number % 3 == 0) {
-                result += fizz + space;
-                fizzCount += 1;
-            }
-            else if (number % 5 == 0) {
-                result += buzz + space;
-                buzzCount += 1;
-            }
-            else {
-                result += Integer.toString(number) + space;
-                integerCount += 1;
-            }
+            output = output + fizzBuzzPrint(number);
+            output = output + fizzPrint(number);
+            output = output + buzzPrint(number);
+            output = output + integerPrint(number);
+            output = output + " ";
         }
-        String counts = "\n" + "fizz: " + Integer.toString(fizzCount) + "\n" + "buzz: " + Integer.toString(buzzCount) + "\n" + "fizzbuzz: " + Integer.toString(fizzBuzzCount) + "\n" + "lucky: " + Integer.toString(luckyCount) + "\n" + "integer: " + Integer.toString(integerCount);
-        result = result + counts;
-        System.out.println(result);
-        return result;
+        return output;
+    }
+
+    public static String fizzPrint(int number) {
+        String fizz = "";
+        if (number % 3 == 0 && number % 15 != 0) {
+            fizz = "fizz";
+        }
+        return fizz;
+    }
+
+    public static String buzzPrint(int number) {
+        String buzz = "";
+        if (number % 5 == 0 && number % 15 != 0) {
+            buzz = "buzz";
+        }
+        return buzz;
+    }
+
+    public static String fizzBuzzPrint(int number) {
+        String fizzBuzz = "";
+        if (number % 15 == 0) {
+            fizzBuzz = "fizzbuzz";
+        }
+        return fizzBuzz;
+    }
+
+    public static String integerPrint(int number) {
+        String integer = "";
+        if (number % 15 != 0 && number % 5 != 0 && number % 3 != 0) {
+            integer = Integer.toString(number);
+        }
+        return integer;
     }
 }
 
