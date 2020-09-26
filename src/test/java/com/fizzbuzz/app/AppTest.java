@@ -2,15 +2,22 @@ package com.fizzbuzz.app;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class AppTest
 {
     FizzBuzz fizzBuzz = new FizzBuzz();
 
+    @Before
+    public void init() {
+        int[] input = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        fizzBuzz.transpose(input);
+    }
+
     @Test
     public void fizzPrintTest() {
-        int input = 3;
+        int input = 6;
         assertEquals("fizz", fizzBuzz.fizzPrint(input));
     }
 
@@ -33,14 +40,38 @@ public class AppTest
     }
 
     @Test
-    public void transposeTest() {
-        int[] input = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-        assertEquals("1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky 14 fizzbuzz 16 17 fizz 19 buzz ", fizzBuzz.transpose(input));
+    public void transposeOutputTest() {
+        assertEquals("1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky 14 fizzbuzz 16 17 fizz 19 buzz \n" +
+                "fizz: 4\n" +
+                "buzz: 3\n" +
+                "fizzbuzz: 1\n" +
+                "lucky: 2\n" +
+                "integer: 10", fizzBuzz.transposeOutput());
     }
 
     @Test
     public void luckyPrintTest() {
         int input = 13;
         assertEquals("lucky", fizzBuzz.luckyPrint(input));
+    }
+
+    @Test
+    public void getFizzCountTest() {
+        assertEquals(4, fizzBuzz.getFizzCount());
+    }
+
+    @Test
+    public void getBuzzCountTest() {
+        assertEquals(3, fizzBuzz.getBuzzCount());
+    }
+
+    @Test
+    public void getFizzBuzzCountTest() {
+        assertEquals(1, fizzBuzz.getFizzBuzzCount());
+    }
+
+    @Test
+    public void getIntegerTest() {
+        assertEquals(10, fizzBuzz.getIntegerCount());
     }
 }
