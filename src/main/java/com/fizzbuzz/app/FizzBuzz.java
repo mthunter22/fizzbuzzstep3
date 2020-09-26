@@ -11,6 +11,7 @@ public class FizzBuzz
     public static String transpose(int[] rangeOfNumbers) {
         String output = "";
         for(int number : rangeOfNumbers) {
+            output = output + luckyPrint(number);
             output = output + fizzBuzzPrint(number);
             output = output + fizzPrint(number);
             output = output + buzzPrint(number);
@@ -22,7 +23,7 @@ public class FizzBuzz
 
     public static String fizzPrint(int number) {
         String fizz = "";
-        if (number % 3 == 0 && number % 15 != 0) {
+        if (number % 3 == 0 && number % 15 != 0 && !Integer.toString(number).contains("3")) {
             fizz = "fizz";
         }
         return fizz;
@@ -30,7 +31,7 @@ public class FizzBuzz
 
     public static String buzzPrint(int number) {
         String buzz = "";
-        if (number % 5 == 0 && number % 15 != 0) {
+        if (number % 5 == 0 && number % 15 != 0 && !Integer.toString(number).contains("3")) {
             buzz = "buzz";
         }
         return buzz;
@@ -38,7 +39,7 @@ public class FizzBuzz
 
     public static String fizzBuzzPrint(int number) {
         String fizzBuzz = "";
-        if (number % 15 == 0) {
+        if (number % 15 == 0 && !Integer.toString(number).contains("3")) {
             fizzBuzz = "fizzbuzz";
         }
         return fizzBuzz;
@@ -46,10 +47,18 @@ public class FizzBuzz
 
     public static String integerPrint(int number) {
         String integer = "";
-        if (number % 15 != 0 && number % 5 != 0 && number % 3 != 0) {
+        if (number % 15 != 0 && number % 5 != 0 && number % 3 != 0 && !Integer.toString(number).contains("3")) {
             integer = Integer.toString(number);
         }
         return integer;
+    }
+
+    public static String luckyPrint(int number) {
+        String lucky = "";
+        if (Integer.toString(number).contains("3")) {
+            lucky = "lucky";
+        }
+        return lucky;
     }
 }
 
